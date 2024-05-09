@@ -12,8 +12,14 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-         transform.Translate(Vector3.right * horizontalInput * _playerSpeed * Time.deltaTime);
-         transform.Translate(Vector3.forward * verticalInput * _playerSpeed * Time.deltaTime);
+        // You can use what ever Following Input type to call/move Charecter
+
+        /*  transform.Translate(Vector3.right * horizontalInput * _playerSpeed * Time.deltaTime);
+          transform.Translate(Vector3.forward * verticalInput * _playerSpeed * Time.deltaTime);
+
+                                                OR                                              */
+
+        transform.Translate(new Vector3(horizontalInput, 0, verticalInput) * _playerSpeed * Time.deltaTime ); 
 
     }
 }
