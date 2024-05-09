@@ -17,9 +17,14 @@ public class PlayerController : MonoBehaviour
         /*  transform.Translate(Vector3.right * horizontalInput * _playerSpeed * Time.deltaTime);
           transform.Translate(Vector3.forward * verticalInput * _playerSpeed * Time.deltaTime);
 
-                                                OR                                              */
+                                                OR                                               
 
-        transform.Translate(new Vector3(horizontalInput, 0, verticalInput) * _playerSpeed * Time.deltaTime ); 
+         transform.Translate(new Vector3(horizontalInput, 0, verticalInput) * _playerSpeed * Time.deltaTime ); 
+
+        */
+
+        Vector3 movement = new Vector3 (horizontalInput, 0, verticalInput);
+        transform.Translate( movement * _playerSpeed * Time.deltaTime );
 
     }
 }
