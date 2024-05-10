@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float _playerSpeed = 3.0f;
+    [SerializeField] private float _jumpForce = 10.0f;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        float jumpInput = Input.GetAxis("Jump");
+
+        transform.Translate(new Vector3(horizontalInput, 0, verticalInput) * _playerSpeed * Time.deltaTime);
+
+        transform.Translate(Vector3.up * jumpInput * _jumpForce * Time.deltaTime);
     }
 }
